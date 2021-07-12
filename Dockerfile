@@ -2,7 +2,7 @@ FROM alpine:3.14
 LABEL maintainer="Walter Leibbrandt"
 LABEL version="0.3"
 
-EXPOSE 8080
+EXPOSE 8118
 
 ENV PVPN_USERNAME= \
     PVPN_PASSWORD= \
