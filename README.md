@@ -1,4 +1,6 @@
 # ProtonVPN Privoxy Docker
+Reconnects hourly
+
 
 Docker container for setting up a [Privoxy](https://www.privoxy.org/) proxy that pushes traffic over a
 [ProtonVPN](https://protonvpn.com/) connection.
