@@ -20,7 +20,8 @@ fi
 echo "$PVPN_USERNAME" > $PVDIR/pvpnpass
 echo "$PVPN_PASSWORD" >> $PVDIR/pvpnpass
 chmod 0600 $PVDIR/pvpnpass
-
+echo "/usr/bin/protonvpn disconnect && /usr/bin/protonvpn $PVPN_CMD_ARGS" > /etc/periodic/hourly/reconnect.sh
+chmod +x /etc/periodic/hourly/reconnect.sh
 # Connect to ProtonVPN
 protonvpn refresh
 protonvpn $PVPN_CMD_ARGS
