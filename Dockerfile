@@ -11,7 +11,8 @@ ENV PVPN_USERNAME= \
     PVPN_CMD_ARGS="connect --fastest" \
     PVPN_DEBUG= \
     HOST_NETWORK= \
-    DNS_SERVERS_OVERRIDE=
+    DNS_SERVERS_OVERRIDE= \
+    PVPN_CRON=
 
 COPY app /app
 COPY pvpn-cli /root/.pvpn-cli
