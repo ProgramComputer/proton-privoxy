@@ -27,7 +27,7 @@ protonvpn refresh
 protonvpn $PVPN_CMD_ARGS
 if [[ -n "$PVPN_CRON" ]]; then
       (crontab -l ; echo "$PVPN_CRON /usr/bin/protonvpn disconnect && /usr/bin/protonvpn $PVPN_CMD_ARGS") | crontab - && crond -f -L /dev/stdout
-  fi
+fi
   
 if ! ip link show proton0 > /dev/null; then
 	echo "Failed to bring up VPN :("
