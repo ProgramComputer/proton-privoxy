@@ -22,7 +22,7 @@ echo "$PVPN_PASSWORD" >> $PVDIR/pvpnpass
 chmod 0600 $PVDIR/pvpnpass
 
   if [[ -n "$PVPN_CRON" ]]; then
-      (crontab -l ; echo "$PVPN_CRON /usr/bin/protonvpn disconnect && /usr/bin/protonvpn $PVPN_CMD_ARGS" | xargs; echo "") | crontab -
+      (crontab -l ; echo -e "$PVPN_CRON /usr/bin/protonvpn disconnect && /usr/bin/protonvpn $PVPN_CMD_ARGS\n" | tr -d "'") | crontab -
   fi
 # Connect to ProtonVPN
 protonvpn refresh
