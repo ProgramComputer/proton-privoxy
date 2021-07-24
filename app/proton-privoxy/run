@@ -20,15 +20,12 @@ fi
 echo "$PVPN_USERNAME" > $PVDIR/pvpnpass
 echo "$PVPN_PASSWORD" >> $PVDIR/pvpnpass
 chmod 0600 $PVDIR/pvpnpass
-
-  
+echo "/usr/bin/protonvpn disconnect && /usr/bin/protonvpn $PVPN_CMD_ARGS" > /etc/periodic/15min/reconnect.sh
+chmod +x /etc/periodic/15min/reconnect.sh
 # Connect to ProtonVPN
 protonvpn refresh
 protonvpn $PVPN_CMD_ARGS
-if [[ -n "$PVPN_CRON" ]]; then
-      (crontab -l ; echo "$PVPN_CRON /usr/bin/protonvpn disconnect && /usr/bin/protonvpn $PVPN_CMD_ARGS") | crontab - && crond -f -L /dev/stdout
-fi
-  
+
 if ! ip link show proton0 > /dev/null; then
 	echo "Failed to bring up VPN :("
 	exit 1
